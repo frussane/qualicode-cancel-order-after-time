@@ -1,1 +1,1 @@
-# qualicode-cancel-order-after-time
+# Cancel WooCommerce Order After X Minutes Considering Payment Method
