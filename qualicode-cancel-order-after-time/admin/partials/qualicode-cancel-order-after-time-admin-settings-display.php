@@ -55,27 +55,27 @@ $success = false;
 </style>
 
 <div class="fcapi-wrapper">
-    <h1><?= __('Select your settings for each payment service','qualicode-cancel-order-after-time') ?></h1>
+    <h1><?php echo __('Select your settings for each payment service','qualicode-cancel-order-after-time') ?></h1>
     <p>
-        <b><?= __('Use 0 (zero) for never expiring, or define the expiry hours for each payment')?> <br> <small><?= __('Supported WooCommerce order statuses:')  ?> processing | on-hold </small> </b>
+        <b><?php echo __('Use 0 (zero) for never expiring, or define the expiry hours for each payment')?> <br> <small><?php echo __('Supported WooCommerce order statuses:')  ?> processing | on-hold </small> </b>
         <br><br>
         Define a CronJob on this URL every minute to execute order cleaning:<br>
-        wget -q -O /dev/null "<?= plugin_dir_url('qualicode-cancel-order-after-time').'qualicode-cancel-order-after-time/qcoat-cron-execute.php?key='.md5(AUTH_SALT) ?>"
+        wget -q -O /dev/null "<?php echo plugin_dir_url('qualicode-cancel-order-after-time').'qualicode-cancel-order-after-time/qcoat-cron-execute.php?key='.md5(AUTH_SALT) ?>"
     </p>
-    <hr>
-    <?= (isset($error) ?  $error : null); ?>
+    <hr> 
+    <?php echo (isset($error) ?  $error : null); ?>
     <form method="POST">
-        <?
+        <?php
         foreach($enabled_gateways as $key => $values):?>
             <fieldset>
-                <label for="qualicode-coat-<?= $key ?>"><?= $values->title ?></label><br/>
-                <input type="number" min="0" id="qualicode-coat-<?= $key ?>" placeholder="" name="qualicode-coat-<?= $key ?>" value="<?= get_option('qualicode-coat-'.$key); ?>"> minute(s)
+                <label for="qualicode-coat-<?php echo $key ?>"><?php echo $values->title ?></label><br/>
+                <input type="number" min="0" id="qualicode-coat-<?php echo $key ?>" placeholder="" name="qualicode-coat-<?php echo $key ?>" value="<?php echo get_option('qualicode-coat-'.$key); ?>"> minute(s)
             </fieldset>
 
-        <? endforeach; ?>
-        <? if($enabled_gateways): ?>
-            <?= submit_button(); ?>
-        <? endif; ?>
+        <?php endforeach; ?>
+        <?php if($enabled_gateways): ?>
+            <?php echo submit_button(); ?>
+        <?php endif; ?>
     </form>
 
 </div>
