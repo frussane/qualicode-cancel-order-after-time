@@ -16,7 +16,7 @@
  * Plugin Name:       WooCommerce Cancel Order After Expiry Time
  * Plugin URI:        https://qualicode.pt
  * Description:       Allows to define an expiring time for WooCommerce orders based on payment used
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Qualicode
  * Author URI:        https://qualicode.pt
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'Qualicode_CancelOrderAfterTime_VERSION', '1.0.0' );
+define( 'Qualicode_CancelOrderAfterTime_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.

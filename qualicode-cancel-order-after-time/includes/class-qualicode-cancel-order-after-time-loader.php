@@ -125,41 +125,35 @@ class Qualicode_CancelOrderAfterTime_Loader {
 			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
 		}
 
+        //update the timestamp of the order status
+        add_action('woocommerce_order_status_changed', 'qualicode_order_status_change_custom', 10, 3);
         function qualicode_order_status_change_custom($order_id, $old_status, $new_status) {
-            if($new_status == 'on-hold' || $new_status == 'pending'){
+            $activeStatuses = json_decode(get_option('qualicode-coat-order-statuses'));
+            if(in_array($new_status, str_replace('wc-','', $activeStatuses))){
                 update_post_meta($order_id, 'qualicode-coat-time-on-pending', current_time('timestamp') );
             }
         }
-        add_action('woocommerce_order_status_changed', 'qualicode_order_status_change_custom', 10, 3);
 
+        //update the timestamp of the order status
+        add_action( 'woocommerce_new_order', 'create_invoice_for_wc_order',  1, 1  );
         function create_invoice_for_wc_order( $order_id ) {
-            $order = new WC_Order( $order_id );
-            $status = $order->get_status();
-            if($status == 'on-hold' || $status == 'pending'){
+            $order          = new WC_Order( $order_id );
+            $status         = $order->get_status();
+            $activeStatuses = json_decode(get_option('qualicode-coat-order-statuses'));
+            if(in_array($status, str_replace('wc-','', $activeStatuses))){
                 update_post_meta($order_id, 'qualicode-coat-time-on-pending', current_time('timestamp') );
             }
         };
 
-        add_action( 'woocommerce_new_order', 'create_invoice_for_wc_order',  1, 1  );
-
+        //send cancellation e-mail for order
         add_action('woocommerce_order_status_changed', 'send_custom_email_notifications', 10, 4 );
         function send_custom_email_notifications( $order_id, $old_status, $new_status, $order ){
-            if ( $new_status == 'cancelled' || $new_status == 'failed' ){
+            if ( $new_status == 'cancelled'){
                 $wc_emails = WC()->mailer()->get_emails(); // Get all WC_emails objects instances
                 $customer_email = $order->get_billing_email(); // The customer email
-            }
 
-            if ( $new_status == 'cancelled' ) {
-// change the recipient of this instance
                 $wc_emails['WC_Email_Cancelled_Order']->recipient = $customer_email;
-// Sending the email from this instance
                 $wc_emails['WC_Email_Cancelled_Order']->trigger( $order_id );
-            }
-            elseif ( $new_status == 'failed' ) {
-// change the recipient of this instance
-                $wc_emails['WC_Email_Failed_Order']->recipient = $customer_email;
-// Sending the email from this instance
-                $wc_emails['WC_Email_Failed_Order']->trigger( $order_id );
             }
         }
 

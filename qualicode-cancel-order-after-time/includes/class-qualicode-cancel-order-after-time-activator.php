@@ -30,7 +30,10 @@ class Qualicode_CancelOrderAfterTime_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+	    $optionsSet = get_option('qualicode-coat-order-statuses');
+	    if(!$optionsSet){
+            $activeStatus = array('wc-pending','wc-on-hold');
+            update_option('qualicode-coat-order-statuses', json_encode($activeStatus));
+        }
 	}
-
 }

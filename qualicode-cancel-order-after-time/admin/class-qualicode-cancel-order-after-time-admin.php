@@ -65,7 +65,7 @@ class Qualicode_CancelOrderAfterTime_Admin {
             function sample_admin_notice__error() {
                 ?>
                 <div class="notice notice-error">
-                    <p><?php _e( 'WooCommerce is not activated. Please activate to use Order Cancel Times', 'qualicode-cancel-order-after-time' ); ?></p>
+                    <p><?php _e( 'WooCommerce is not activated. Please activate to use Order cancel times plugin', 'qualicode-cancel-order-after-time' ); ?></p>
                 </div>
                 <?php
             }
@@ -125,7 +125,7 @@ class Qualicode_CancelOrderAfterTime_Admin {
 
 	public function register_admin_menu(){
 
-        add_submenu_page('woocommerce', 'Order Cancel Time', 'Order Cancel Times', 'administrator',
+        add_submenu_page('woocommerce', __('Order cancel times','qualicode-cancel-order-after-time'), __('Order cancel times','qualicode-cancel-order-after-time'), 'administrator',
             $this->plugin_name.'-settings', array( $this, 'displayPluginAdminSettings' ));
     }
 

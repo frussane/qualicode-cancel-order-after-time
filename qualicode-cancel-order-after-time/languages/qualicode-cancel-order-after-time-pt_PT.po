@@ -1,14 +1,13 @@
 # Blank WordPress Pot
 # Copyright 2014 ...
 # This file is distributed under the GNU General Public License v3 or later.
-#, fuzzy
 msgid ""
 msgstr ""
-"Last-Translator: Filipe Russane <geral@frussane.pt>\n"
+"Last-Translator: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
@@ -19,42 +18,50 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-Bookmarks: \n"
-"Language: \n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2021-03-29 17:47+0000\n"
-"X-Generator: Loco https://localise.biz/"
+"Language: pt_PT\n"
+"PO-Revision-Date: 2021-03-29 17:47+0000\n"
+"POT-Creation-Date: 2021-03-29 15:42+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Project-Id-Version: WooCommerce Cancel Order After Expiry Time\n"
+"Report-Msgid-Bugs-To: \n"
+"Language-Team: Português\n"
+"X-Loco-Version: 2.5.2; wp-5.7"
 
 #. Description of the plugin
 msgid ""
 "Allows to define an expiring time for WooCommerce orders based on payment "
 "used"
 msgstr ""
+"Permite definir um tempo de validade para as encomendas em WooCommerce "
+"conforme o método de pagamento usado"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-settings-display.php:31
 msgid "Cancel times"
-msgstr ""
+msgstr "Tempos de cancelamento"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-emails.php:5
 msgid "Coming soon! :)"
-msgstr ""
+msgstr "Brevemente disponível"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-general.php:36
 msgid ""
 "Configure the following CronJob on your host in order for the plugin to be "
 "activelly running - we advide running it every minute, to ensure precision"
 msgstr ""
+"Configure no seu hosting o CronJob que se encontra abaixo - recomendamos que "
+"corra a cada minuto para melhor precisão"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-general.php:57
 msgid "Days"
-msgstr ""
+msgstr "Dias"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-settings-display.php:33
 msgid "E-mails"
-msgstr ""
+msgstr "E-mails"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-general.php:56
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 #. URI of the plugin
 #. Author URI of the plugin
@@ -62,20 +69,21 @@ msgid "https://qualicode.pt"
 msgstr ""
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-general.php:55
+#| msgid "minute(s)"
 msgid "Minutes"
-msgstr ""
+msgstr "Minutos"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-general.php:28
 msgid "No payment methods are active on WooCommerce"
-msgstr ""
+msgstr "Não tem métodos de pagamento ativos!"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-general.php:54
 msgid "Off"
-msgstr ""
+msgstr "Desligado"
 
 #: admin/class-qualicode-cancel-order-after-time-admin.php:128
 msgid "Order cancel times"
-msgstr ""
+msgstr "Expirar encomendas"
 
 #. Author of the plugin
 msgid "Qualicode"
@@ -84,21 +92,27 @@ msgstr ""
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-settings.php:26
 msgid "Select on which order status should this plugin act on"
 msgstr ""
+"Selecione quais os estados o plugin deverá considerar como sendo de "
+"pagamento pendente"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-tab-general.php:35
 msgid "Select your settings for each payment service"
-msgstr ""
+msgstr "Selecione as definições para cada método de pagamento"
 
 #: admin/partials/qualicode-cancel-order-after-time-admin-settings-display.php:32
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 #. Name of the plugin
 msgid "WooCommerce Cancel Order After Expiry Time"
-msgstr ""
+msgstr "Expirar encomendas WooCommerce"
 
 #: admin/class-qualicode-cancel-order-after-time-admin.php:68
+#| msgid ""
+#| "WooCommerce is not activated. Please activate to use Order Cancel Times"
 msgid ""
 "WooCommerce is not activated. Please activate to use Order cancel times "
 "plugin"
 msgstr ""
+"O WooCommerce não se encontra ativo. Por favor ative o WooCommerce para "
+"utilizar o plugin de cancelamento de encomendas."
